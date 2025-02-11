@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ExamenService } from '../examen.service';
 
 @Component({
   selector: 'app-home',
@@ -8,6 +9,15 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  constructor(private examenservice: ExamenService ) {}
+
+  randomquote: any;
+
+  ngOnInit(){
+    this.examenservice.getQuote().subscribe(data => {
+      this.randomquote = data;
+      console.log(data);
+    });
+  }
 
 }

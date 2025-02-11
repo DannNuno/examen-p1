@@ -1,0 +1,50 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Examen P1
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+  
+  <ion-content>
+    <h2>Formulario</h2>
+    <input #nameInput type="text" placeholder="Nombre de pelicula" />
+    <input #yearInput type="number" placeholder="Año de lanzamiento" />
+    <input #nameauthorInput type="text" placeholder="Nombre del autor" />
+    <input #casaproductoraInput type="text" placeholder="Casa productora" />
+    <input #protagonistaInput type="text" placeholder="Protagonista" />
+
+    <br/>
+
+    <button
+    (click)="addItem(nameInput.value, yearInput.value, nameauthorInput.value, casaproductoraInput.value, 
+    protagonistaInput.value); nameInput.value = ''; yearInput.value = ''; nameauthorInput.value = ''; 
+    casaproductoraInput.value = ''; protagonistaInput.value = ''"
+    >
+    Agregar
+    </button>
+    
+    <table border="1" style="margin-top: 20px; width: 100%; text-align: left">
+      <thead>
+        <tr>
+          <th>Nombre de pelicula</th>
+          <th>Año de lanzamiento</th>
+          <th>Nombre del autor</th>
+          <th>Casa productora</th>
+          <th>Protagonista</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of items">
+          <td>{{ item.id }}</td>
+          <td>{{ item.name }}</td>
+          <td>{{ item.year }}</td>
+          <td>{{ item.nameauthor }}</td>
+          <td>{{ item.casaproductora }}</td>
+          <td>{{ item.protagonista }}</td>
+        </tr>
+      </tbody>
+    </table>
+  
+  </ion-content>
+  

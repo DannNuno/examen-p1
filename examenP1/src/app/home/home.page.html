@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Examen P1
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,12 +9,33 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title size="large">Quote</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-content class="ion-padding">
+    <ng-container *ngIf="randomquote;else loading">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>
+            Random Quote:
+          </ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content>
+          <strong>{{randomquote.quote}}</strong>
+          <br>
+          Autor: {{randomquote.author}}
+        </ion-card-content>
+
+      </ion-card>
+    </ng-container>
+  </ion-content>
+
+  <ng-template #loading>
+    <ion-spinner name="crescent">
+    </ion-spinner>
+  </ng-template>
+
 </ion-content>
+
